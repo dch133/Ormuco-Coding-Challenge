@@ -20,7 +20,7 @@ Assumptions: Cache randomly adds strings (str1 to str10) for 20 iterations and l
 
 Geo Distribution not implemented.
 
-This code can by actually writing the Cache in C then importing the binaries into Python. ,
+*This code can be improved actually writing the Cache in C then importing the binaries into Python.
 
-Reference: https://www.geeksforgeeks.org/lru-cache-implementation/ 
+*Reference: https://www.geeksforgeeks.org/lru-cache-implementation/ 
 
