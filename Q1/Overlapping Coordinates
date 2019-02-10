@@ -1,0 +1,29 @@
+def are_separate(r, s):
+  (a, b) = sorted(r)
+  (x, y) = sorted(s)
+  return b < x or y < a
+
+
+def _main_():
+
+    try:
+        set1=[]             # Empty line 1
+        set2=[]             # Empty line 2
+        print('Enter 2 numbers for each range set on x-axis to compare.\n'
+              'The numbers will be sorted automatically in increasing order\n')
+        for i in range(2):
+            c1 = float(input('Enter INTEGER {0} for coordinate Set 1: \n'.format(i+1)))
+            set1.append(c1)
+        for i in range(2):
+            c1 = float(input('Enter INTEGER {0} for coordinate Set 2: \n'.format(i + 1)))
+            set2.append(c1)
+
+        # Check if numbers overlap
+        result = not are_separate(tuple(set1), tuple(set2))
+        print("Do the numbers overlap: "+str(result)+"\n")
+
+    except ValueError:
+        print('\n')
+        print('Error: Only Integers are allowed\n')
+
+_main_()
