@@ -27,7 +27,7 @@ class Cache:
             freed_key = self.delete()  # remove element with LRU
             # add once freed up some space
             self.cache[freed_key] = {'time added': datetime.datetime.now().isoformat(), 'value': value}
-        else: # adds while there is free space
+        else:  # adds while there is free space
             self.cache[self.size()] = {'time added': datetime.datetime.now().isoformat(), 'value': value}
 
     def delete(self):
@@ -39,7 +39,7 @@ class Cache:
             elif self.cache[key]['time added'] < self.cache[old_entry]['time added']:
                 old_entry = key
 
-        print('Removed Element:\t'+ str(self.cache[old_entry]))
+        print('Removed Element:\t' + str(self.cache[old_entry]))
         self.cache.pop(old_entry)
         return old_entry
 
@@ -53,10 +53,10 @@ class Cache:
         cache = Cache()
 
         # Updating Cache with entries
-        for i in range (20):
-            print("Iteration: {0}".format(i+1) )
-            value = ''.join([random.choice(sites)]) # randomly add a new value to the cache
-            print('Added Element:\t'+ value)
+        for i in range(20):
+            print("Iteration: {0}".format(i + 1))
+            value = ''.join([random.choice(sites)])  # randomly add a new value to the cache
+            print('Added Element:\t' + value)
             cache.update(value)
 
             print("# Cached Entries: {0}\n".format(cache.size()))
@@ -65,6 +65,7 @@ class Cache:
         print('\n\n\t\t', '*' * 10, ' CACHE LIST ', '*' * 10)
         for k, v in cache.view().items():
             print("Index {0} : {1}".format(k, v))
+
 
 LRU_cache = Cache
 Cache.start_cache(LRU_cache)
